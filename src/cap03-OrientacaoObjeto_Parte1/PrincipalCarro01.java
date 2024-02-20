@@ -1,4 +1,4 @@
-public class Principal {
+public class PrincipalCarro01 {
     public static void main(String[] args) {
         // Declarado a variável meuCarro
 		Carro meuCarro;
