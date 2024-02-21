@@ -6,4 +6,8 @@ public class Carro {
 	boolean biCombustivel; // false
 
 	Proprietario dono; // null
+
+	void ligar() {
+		System.out.println("Ligando o carro: " + modelo);
+	}
 }
