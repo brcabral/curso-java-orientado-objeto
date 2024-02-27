@@ -1,3 +1,5 @@
+package com.algaworks.cursojava.financeiro.modelo;
+
 public class Fornecedor {
     private String nome;
 
