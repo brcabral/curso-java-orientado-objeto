@@ -35,4 +35,16 @@ public class ContaPagar extends Conta {
             System.out.println("A conta não pode ser paga pois está cancelada.");
         }
     }
+
+    @Override
+    public void exibirDetalhes() {
+        System.out.println("\nConta a Pagar");
+        System.out.println("===================================");
+        System.out.println("Fornecedor: " + this.getFornecedor().getNome());
+        System.out.println("Descrição: " + this.getDescricao());
+        System.out.println("Valor: " + this.getValor());
+        System.out.println("Data de vencimento: " + this.getDataVencimento());
+        System.out.println("Situação: " + this.getSituacaoConta());
+        System.out.println("===================================");
+    }
 }

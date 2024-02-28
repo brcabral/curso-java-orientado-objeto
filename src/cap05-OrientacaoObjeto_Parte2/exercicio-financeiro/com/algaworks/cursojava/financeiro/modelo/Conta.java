@@ -1,6 +1,6 @@
 package com.algaworks.cursojava.financeiro.modelo;
 
-public class Conta {
+public abstract class Conta {
     protected String descricao;
     protected Double valor;
     protected String dataVencimento;
@@ -37,6 +37,8 @@ public class Conta {
     public SituacaoConta getSituacaoConta() {
         return situacaoConta;
     }
+
+    public abstract void exibirDetalhes();
 
     public void cancelar() {
         if (this.situacaoConta.equals(SituacaoConta.PENDENTE)) {
