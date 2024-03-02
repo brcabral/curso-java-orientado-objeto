@@ -40,14 +40,14 @@ public abstract class Conta {
 
     public abstract void exibirDetalhes();
 
-    public void cancelar() {
+    public void cancelar() throws OperacaoContaException {
         if (this.situacaoConta.equals(SituacaoConta.PENDENTE)) {
             this.situacaoConta = SituacaoConta.CANCELADA;
             System.out.println("Conta cancelada!");
         } else if (this.situacaoConta.equals(SituacaoConta.PAGA)) {
-            System.out.println("A conta não pode ser paga pois já foi paga.");
+            throw new OperacaoContaException("A conta não pode ser paga pois já foi paga.");
         } else {
-            System.out.println("A conta não pode ser paga pois já foi cancelada.");
+            throw new OperacaoContaException("A conta não pode ser paga pois já foi cancelada.");
         }
     }
 }

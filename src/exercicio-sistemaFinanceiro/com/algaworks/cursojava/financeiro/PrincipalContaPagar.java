@@ -1,10 +1,10 @@
 package com.algaworks.cursojava.financeiro;
 
 import com.algaworks.cursojava.financeiro.modelo.Cliente;
-import com.algaworks.cursojava.financeiro.modelo.Conta;
 import com.algaworks.cursojava.financeiro.modelo.ContaPagar;
 import com.algaworks.cursojava.financeiro.modelo.ContaReceber;
 import com.algaworks.cursojava.financeiro.modelo.Fornecedor;
+import com.algaworks.cursojava.financeiro.modelo.OperacaoContaException;
 
 public class PrincipalContaPagar {
         public static void main(String[] args) {
@@ -36,13 +36,20 @@ public class PrincipalContaPagar {
                 contaReceber1.setDataVencimento("23/05/2012");
                 contaReceber1.setCliente(atacadista);
 
-                ContaReceber contaReceber2 = new ContaReceber(telecom, "Manutenção em sistema de conta online",
-                                53200d, "13/05/2012");
+                ContaReceber contaReceber2 = new ContaReceber(telecom, "Manutenção em sistema de conta online", 53200d,
+                                "13/05/2012");
 
-                // exibe listagem de todas as contas com detalhamento
-                RelatorioContas relatorio = new RelatorioContas();
-                Conta[] contas = new Conta[] { contaPagar1, contaPagar2, contaReceber1, contaReceber2 };
+                try {
+                        // pagamento e cancelamento de contas a pagar
+                        contaPagar1.pagar();
+                        contaPagar2.cancelar();
 
-                relatorio.exibirListagem(contas);
+                        // recebimento e cancelamento de contas a receber
+                        contaReceber1.receber();
+                        contaReceber2.cancelar();
+                } catch (OperacaoContaException oce) {
+                        System.out.println("Erro em operação com conta: " + oce.getMessage());
+                        oce.printStackTrace();
+                }
         }
 }

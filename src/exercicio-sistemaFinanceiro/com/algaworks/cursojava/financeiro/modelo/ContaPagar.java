@@ -22,7 +22,7 @@ public class ContaPagar extends Conta {
         this.dataVencimento = dataVencimento;
     }
 
-    public void pagar() {
+    public void pagar() throws OperacaoContaException {
         if (this.situacaoConta.equals(SituacaoConta.PENDENTE)) {
             this.situacaoConta = SituacaoConta.PAGA;
 
@@ -30,9 +30,9 @@ public class ContaPagar extends Conta {
                     + this.valor + " e vencimento em " + this.dataVencimento
                     + " do fornecedor " + this.fornecedor.getNome() + ".");
         } else if (this.situacaoConta.equals(SituacaoConta.PAGA)) {
-            System.out.println("A conta não pode ser paga pois já foi paga.");
+            throw new OperacaoContaException("A conta não pode ser paga pois já foi paga.");
         } else {
-            System.out.println("A conta não pode ser paga pois está cancelada.");
+            throw new OperacaoContaException("A conta não pode ser paga pois está cancelada.");
         }
     }
 

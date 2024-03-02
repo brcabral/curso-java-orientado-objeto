@@ -22,7 +22,7 @@ public class ContaReceber extends Conta {
         super.dataVencimento = dataVencimento;
     }
 
-    public void receber() {
+    public void receber() throws OperacaoContaException {
         if (this.situacaoConta.equals(SituacaoConta.PENDENTE)) {
             this.situacaoConta = SituacaoConta.PAGA;
 
@@ -31,17 +31,17 @@ public class ContaReceber extends Conta {
                     + " do cliente " + this.cliente.getNome() + ".");
 
         } else if (this.situacaoConta.equals(SituacaoConta.PAGA)) {
-            System.out.println("A conta não pode ser recebida pois já foi recebida.");
+            throw new OperacaoContaException("A conta não pode ser recebida pois já foi recebida.");
         } else {
-            System.out.println("A conta não pode ser recebida pois está cancelada.");
+            throw new OperacaoContaException("A conta não pode ser recebida pois está cancelada.");
         }
     }
 
-    public void cancelar() {
+    public void cancelar() throws OperacaoContaException {
         if (this.valor < 50000d) {
             super.cancelar();
         } else {
-            System.out.println("A conta não pode ser cancelada pois o valor dela é superior a R$ 50 mil");
+            throw new OperacaoContaException("A conta não pode ser cancelada pois o valor dela é superior a R$ 50 mil");
         }
     }
 
