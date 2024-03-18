@@ -1,0 +1,17 @@
+<carrinho>
+  <produto>
+    <codigo>1</codigo>
+    <descricao>sabonete</descricao>
+    <valor>2.30</valor>
+  </produto>
+  <produto>
+    <codigo>2</codigo>
+    <descricao>shampoo</descricao>
+    <valor>8.20</valor>
+  </produto>
+  <produto>
+    <codigo>3</codigo>
+    <descricao>creme dental</descricao>
+    <valor>3.50</valor>
+  </produto>
+</carrinho>
