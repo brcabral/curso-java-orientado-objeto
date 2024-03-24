@@ -1,0 +1,6 @@
+joao@localhost.com
+maria@localhost.com
+ricardo@localhost.com
+joao2@localhost.com
+maria2@localhost.com
+ricardo2@localhost.com
